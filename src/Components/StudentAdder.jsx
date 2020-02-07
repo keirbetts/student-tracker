@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import { Button } from "react-bootstrap";
 
 class StudentAdder extends Component {
   state = {
@@ -18,7 +17,7 @@ class StudentAdder extends Component {
 
     api.postStudent({ ...this.state }).then(newStudent => {
       console.log(newStudent, "POSTED");
-      this.props.addStudent(newStudent);
+      this.props.addStudent(newStudent.student);
     });
   };
 
@@ -48,7 +47,7 @@ class StudentAdder extends Component {
               required
             />
           </label>
-          <Button className="button">ADD STUDENT</Button>
+          <button className="button">ADD STUDENT</button>
         </form>
       </div>
     );

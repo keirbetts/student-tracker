@@ -40,8 +40,23 @@ exports.postStudent = student => {
   return axios
     .post("https://nc-student-tracker.herokuapp.com/api/students", student)
     .then(({ data }) => {
-      console.log(data, "data after post");
+      return data;
+    });
+};
 
+exports.removeStudent = student => {
+  return axios
+    .delete(`https://nc-student-tracker.herokuapp.com/api/students/${student}`)
+    .then(console.log("deleted"));
+};
+
+exports.moveStudentForward = student => {
+  return axios
+    .patch(
+      `https://nc-student-tracker.herokuapp.com/api/students/${student}?progress=true`
+    )
+    .then(({ data }) => {
+      console.log(data);
       return data;
     });
 };

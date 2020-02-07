@@ -31,6 +31,15 @@ class Studentslist extends Component {
     }
   };
 
+  handleDelete = event => {
+    const studentId = event.target.parentElement.id;
+    api.removeStudent(studentId).then(() => {
+      this.setState(currentState => {
+        return { students: [...currentState.students] };
+      });
+    });
+  };
+
   addStudent = newStudent => {
     this.setState(currentState => {
       return { students: [newStudent, ...currentState.students] };
@@ -51,13 +60,14 @@ class Studentslist extends Component {
         </select>
         {this.state.students.map(student => {
           return (
-            <section key={student._id}>
+            <section id={student._id} key={student._id}>
               <h3>
                 <Link to={`/students/${student._id}`}>{student.name}</Link>
               </h3>
               <p>startingCohort: {student.startingCohort}</p>
               <p>currentBlock: {student.currentBlock}</p>
               <p>Student_id: {student._id}</p>
+              <button onClick={this.handleDelete}>Remove Student</button>
             </section>
           );
         })}

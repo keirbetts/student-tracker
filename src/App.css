@@ -1,6 +1,13 @@
 .App {
   text-align: left;
   background-color: rgb(247, 183, 208);
+  width: 80%;
+  margin: 0px auto;
+  padding: 0px 100px;
+}
+
+body {
+  background-color: rgb(224, 174, 218);
 }
 
 .button {
@@ -8,7 +15,8 @@
 }
 
 .select {
-  margin: 10px 35px;
+  margin: 10px 0px;
+  height: 20px;
 }
 
 .input {

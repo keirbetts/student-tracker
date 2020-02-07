@@ -7,21 +7,18 @@ import { Router } from "@reach/router";
 import SingleStudent from "./Components/SingleStudent";
 import Blocklist from "./Components/Blocklist";
 import SingleBlock from "./Components/SingleBlock";
-import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <Container>
-        <Title />
-        <Navbr />
-        <Router>
-          <Studentslist path="/students" />
-          <SingleStudent path="/students/:student_id" />
-          <Blocklist path="/blocks" />
-          <SingleBlock path="/blocks/:block_slug" />
-        </Router>
-      </Container>
+      <Title />
+      <Navbr />
+      <Router>
+        <Studentslist path="/students" />
+        <SingleStudent path="/students/:student_id" />
+        <Blocklist path="/blocks" />
+        <SingleBlock path="/blocks/:block_slug" />
+      </Router>
     </div>
   );
 }
